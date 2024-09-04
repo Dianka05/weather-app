@@ -20,7 +20,7 @@ export const Forecast = () => {
         return `${weekday}, ${day}`;
     }
   return (
-    <main className='w-full h-[100vh] flex flex-col items-center justify-start p-4 gap-5 bg-gray-100'>
+    <main className='w-full min-h-[100vh] flex flex-col items-center justify-start p-4 gap-5 bg-gray-100'>
         <h1 className='mt-[80px] text-4xl font-extrabold text-orange-600'>Forecast</h1>
         <div className='mt-4 flex flex-col items-center'>
             <input onChange={(e) => handleSearch(e, setLocations)} className='outline-none border border-orange-500 p-3 w-full max-w-md rounded-md text-gray-700 placeholder-gray-500' placeholder='Enter city'/>
@@ -56,7 +56,7 @@ export const Forecast = () => {
             })}
             </div>
         </div>
-        <Link to={'/weather-info'} className='bg-orange-500 text-white p-2 rounded-md block hover:bg-gray-100 hover:border-orange-500 hover:border-2 hover:text-orange-500 transition-colors duration-300'>Expanded Weather Information</Link>
+        <Link to={'/weather-info'} className='bg-orange-500 text-white p-2 rounded-md block hover:bg-gray-100 hover:border-orange-500 hover:border-2 mb-5 hover:text-orange-500 transition-colors duration-300'>Expanded Weather Information</Link>
     </main>
   )
 }

@@ -43,24 +43,24 @@ export const ExpandedWeatherInfo = () => {
   };
   return (
     <main className='w-full h-full flex flex-col items-center justify-center p-4 bg-gray-100'>
-    {location ? <h1 className='mt-[80px] text-4xl font-extrabold text-orange-600'>{location?.name}, {location?.country}</h1> : <h1 className='mt-[80px] text-4xl font-extrabold text-orange-600'>N/A</h1>}
+    {location ? <h1 className='mt-[80px] text-4xl font-extrabold text-orange-600 text-center'>{location?.name}, {location?.country}</h1> : <h1 className='mt-[80px] text-4xl font-extrabold text-orange-600'>N/A</h1>}
   
     <section className='mt-6 p-4 bg-white shadow-md rounded-lg w-full max-w-3xl'>
       <h2 className='text-xl font-semibold text-orange-500'>Astro Information</h2>
-      <div className='mt-2 flex items-center justify-center gap-5 md:flex-nowrap flex-wrap'>
-        <div className='flex items-center justify-start gap-3'>
+      <div className='mt-2 flex items-center md:justify-center sm:gap-5 sm:flex-nowrap flex-wrap justify-between'>
+        <div className='flex items-center justify-start sm:gap-3 flex-grow sm:flex-grow-0'>
           <img src={sunrise} width={40} height={40} alt="sunrise icon" />
           <p className='text-gray-700'>Sunrise: {parseTime(forecast?.forecastday[0]?.astro?.sunrise)}</p>
         </div>
-        <div className='flex items-center justify-start gap-3'>
+        <div className='flex items-center justify-start sm:gap-3 flex-grow sm:flex-grow-0'>
           <img src={sunset} width={40} height={40} alt="sunset icon" />
           <p className='text-gray-700'>Sunset: {parseTime(forecast?.forecastday[0]?.astro?.sunset)}</p>
         </div>
-        <div className='flex items-center justify-start gap-3'>
+        <div className='flex items-center justify-start sm:gap-3 flex-grow sm:flex-grow-0'>
           <img src={moonrise} width={40} height={40} alt="moonrise icon" />
           <p className='text-gray-700'>Moonrise: {parseTime(forecast?.forecastday[0]?.astro?.moonrise)}</p>
         </div>
-        <div className='flex items-center justify-start gap-3'>
+        <div className='flex items-center justify-start sm:gap-3 flex-grow sm:flex-grow-0'>
           <img src={moonset} width={40} height={40} alt="moonset icon" />
           <p className='text-gray-700'>Moonset: {parseTime(forecast?.forecastday[0]?.astro?.moonset)}</p>
         </div>
