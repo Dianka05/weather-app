@@ -1,4 +1,3 @@
-import './App.css'
 import { Forecast } from './pages/Forecast'
 import { Sidebar } from './components/Sidebar'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
@@ -7,6 +6,7 @@ import { ExpandedWeatherInfo } from './pages/ExpandedWeatherInfo'
 import { useState } from 'react'
 import { Header } from './components/Header'
 import { WeatherProvider } from './components/WeatherProvider'
+import { Analytics } from '@vercel/analytics/react'
 
 function App() {  
   const [toggle, setToggle] = useState(false)
@@ -14,6 +14,7 @@ function App() {
   return (
   <WeatherProvider>
       <Router>
+          <Analytics />
           <Header setToggle={setToggle} />
           <Sidebar toggle={toggle} setToggle={setToggle}/>
           <Routes>
