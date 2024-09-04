@@ -2,10 +2,10 @@ import { apiKey } from "./constants";
 
 
 const forecastEndpoint = (params) => 
-    `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${params.cityName}&days=${params.days}&aqi=no&alerts=no`;
+    `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${params.cityName}&days=${params.days}&aqi=no&alerts=no`;
 
 const locationEndpoint = (params) => 
-    `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${params.cityName}`;
+    `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${params.cityName}`;
 
 const apiCall = async (endpoint) => {
     try {
