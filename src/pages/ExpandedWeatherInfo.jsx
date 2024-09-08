@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { WeatherContext } from '../components/WeatherProvider';
-import { fetchLocations } from '../api/weather';
+// import { fetchLocations } from '../api/weather';
 import wind from '/icons/windy.png';
 import calendar from '/icons/morning.png';
 import sunset from '/icons/sunset.png';
@@ -11,7 +11,7 @@ import humidityIcon from '/icons/humidity.png';
 
 export const ExpandedWeatherInfo = () => {
   const { weatherForecast } = useContext(WeatherContext);
-  const [locations, setLocations] = useState({});
+  // const [locations, setLocations] = useState({});
   const options = {
     hour: '2-digit',
     minute: '2-digit',
@@ -20,16 +20,16 @@ export const ExpandedWeatherInfo = () => {
   const date = new Date();
   const hour = date.getHours();
 
-  useEffect(() => {
-   fetchLocations({ cityName: weatherForecast?.location?.name }).then(data => {
-      setLocations(data || []);
-    }).catch(error => {
-      // console.error('Error fetching locations:', error);
-      setLocations([]);
-    });
-  }, []);
+  // useEffect(() => {
+  //  fetchLocations({ cityName: weatherForecast?.location?.name }).then(data => {
+  //     setLocations(data || []);
+  //   }).catch(error => {
+  //     // console.error('Error fetching locations:', error);
+  //     setLocations([]);
+  //   });
+  // }, []);
 
-  const {forecast, location} = locations;
+  const {forecast, location} = weatherForecast;
   const parseTime = (timeStr) => {
     if (!timeStr) return 'N/A';
     const [time, modifier] = timeStr.split(' ');
@@ -86,7 +86,7 @@ export const ExpandedWeatherInfo = () => {
         const thisHour = new Date(time).toLocaleTimeString('en-US', options);
         const isCurrentHour = hour === forecastHour;
         return (
-          <div className={`p-4 flex flex-col items-center justify-center border rounded-lg shadow-md ${isCurrentHour ? 'bg-orange-400 text-white' : 'bg-gray-200 text-gray-700'}`}>
+          <div key={time} className={`p-4 flex flex-col items-center justify-center border rounded-lg shadow-md ${isCurrentHour ? 'bg-orange-400 text-white' : 'bg-gray-200 text-gray-700'}`}>
             <span className={isCurrentHour ? 'block text-white' : 'hidden'}>Now</span>
             <h2 className='text-lg font-semibold'>{thisHour}</h2>
             <img src={condition.icon} alt={condition.text} width={100} height={100}/>
